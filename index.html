@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script>try{var t=localStorage.getItem('car-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}setTimeout(function(){document.documentElement.classList.add('theme-anim');},350);</script>
+  <script src="./fx.js"></script>
+  <style>
+    :root,[data-theme="dark"]{--bg:#0b0b0d;--bg-alt:#111116;--panel:#15151a;--ink:#f4f4f2;--ink-soft:#cfcfce;--muted:#b6b6b8;--muted2:#98989b;--muted3:#8a8a8d;--faint:#77777a;--ghost:#26262c;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.15);--line3:rgba(255,255,255,.22);--dot:rgba(255,255,255,.05);--nav-bg:rgba(11,11,13,.86);--amber-ink:#FFB020;--on-amber:#0b0b0d}
+    [data-theme="light"]{--bg:#efeae1;--bg-alt:#ffffff;--panel:#ffffff;--ink:#1b1a16;--ink-soft:#3a362f;--muted:#55514a;--muted2:#6d6960;--muted3:#8a857b;--faint:#a8a297;--ghost:#e6e0d3;--line:rgba(0,0,0,.10);--line2:rgba(0,0,0,.15);--line3:rgba(0,0,0,.24);--dot:rgba(0,0,0,.06);--nav-bg:rgba(239,234,225,.86);--amber-ink:#b26a00;--on-amber:#0b0b0d}
+    html.theme-anim body,html.theme-anim nav,html.theme-anim footer,html.theme-anim section,html.theme-anim div,html.theme-anim span,html.theme-anim p,html.theme-anim h1,html.theme-anim h2,html.theme-anim h3,html.theme-anim label,html.theme-anim input,html.theme-anim textarea,html.theme-anim button,html.theme-anim a{transition:background-color .3s ease,border-color .3s ease,color .25s ease}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg,#0b0b0d)}
+    #dc-root{background:var(--bg,#0b0b0d)}
+    body{background:var(--bg,#0b0b0d);color:var(--ink,#f4f4f2);font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    @keyframes lineUp{from{transform:translateY(112%)}to{transform:none}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+    @keyframes stripeSlide{from{background-position:0 0}to{background-position:0 56.57px}}
+  </style>
+</helmet>
+<dc-import name="SiteNav" active="home" hint-size="100%,74px"></dc-import>
+
+<section data-theme="dark" style="position:relative;overflow:hidden;background:#0b0b0d">
+  <div data-parallax="0.14" style="position:absolute;top:-18%;left:0;right:0;bottom:-18%;background-image:linear-gradient(90deg,rgba(11,11,13,0.98) 0%,rgba(11,11,13,0.93) 44%,rgba(11,11,13,0.62) 100%),url('https://img1.wsimg.com/isteam/stock/7WzKxzn/:/rs=w:1600,cg:true,m');background-size:cover;background-position:center right;will-change:transform"></div>
+  <div style="position:absolute;top:0;bottom:0;right:0;width:8px;background:repeating-linear-gradient(-45deg,#FFB020 0 20px,#0b0b0d 20px 40px);background-size:100% 56.57px;animation:stripeSlide 2.2s linear infinite"></div>
+  <div style="position:relative;max-width:1180px;margin:0 auto;padding:clamp(72px,11vw,140px) clamp(20px,5vw,52px) clamp(64px,9vw,120px)">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:26px;animation:fadeUp .7s cubic-bezier(.22,.61,.36,1) .05s both">
+      <span style="width:26px;height:2px;background:#FFB020"></span>
+      <span style="font:700 12px/1 'Space Mono',monospace;letter-spacing:0.24em;color:#FFB020">ROUND ROCK · HUTTO · GEORGETOWN, TX</span>
+    </div>
+    <h1 style="margin:0;font:400 clamp(52px,9vw,116px)/0.94 'Anton',sans-serif;text-transform:uppercase;letter-spacing:-0.01em;color:var(--ink,#f4f4f2)">
+      <span style="display:block;overflow:hidden;padding-bottom:0.04em"><span style="display:block;animation:lineUp .85s cubic-bezier(.22,.61,.36,1) .15s both">Complete</span></span>
+      <span style="display:block;overflow:hidden;padding-bottom:0.06em"><span style="display:block;animation:lineUp .85s cubic-bezier(.22,.61,.36,1) .3s both">car care.</span></span>
+    </h1>
+    <p style="margin:28px 0 0;max-width:520px;font-size:clamp(16px,2vw,19px);line-height:1.6;color:var(--muted,#b6b6b8);animation:fadeUp .7s cubic-bezier(.22,.61,.36,1) .55s both">Automotive repair in Round Rock, Hutto, Georgetown, TX. Specializing in auto repair for your car, truck or SUV.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;animation:fadeUp .7s cubic-bezier(.22,.61,.36,1) .7s both">
+      <a href="tel:5123888993" style="display:flex;align-items:center;gap:10px;text-decoration:none;background:#FFB020;color:var(--on-amber,#0b0b0d);font:700 15px/1 'Barlow Condensed',sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:16px 26px;border-radius:3px" style-hover="background:#ffc247" style-active="transform:scale(0.97)">Call 512.388.8993</a>
+      <a href="sms:5127517003" style="display:flex;align-items:center;gap:10px;text-decoration:none;background:transparent;color:var(--ink,#f4f4f2);font:700 15px/1 'Barlow Condensed',sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:16px 26px;border-radius:3px;border:1px solid var(--line3,rgba(255,255,255,.22))" style-hover="border-color:var(--amber-ink,#FFB020);color:var(--amber-ink,#FFB020)">Text 512.751.7003</a>
+      <a href="mailto:camdynautorepair@outlook.com" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--muted,#b6b6b8);font:700 13px/1 'Barlow Condensed',sans-serif;letter-spacing:0.1em;text-transform:uppercase;padding:16px 4px" style-hover="color:var(--amber-ink,#FFB020)">Email us →</a>
+    </div>
+  </div>
+</section>
+
+<div style="background:#FFB020;overflow:hidden;white-space:nowrap;padding:11px 0;border-top:1px solid var(--bg,#0b0b0d);border-bottom:1px solid var(--bg,#0b0b0d)">
+  <div style="display:inline-flex;gap:0;animation:marq 42s linear infinite;will-change:transform">
+    <span style="font:400 15px/1 'Anton',sans-serif;text-transform:uppercase;letter-spacing:0.04em;color:var(--on-amber,#0b0b0d)">{{ makesText }}</span>
+    <span style="font:400 15px/1 'Anton',sans-serif;text-transform:uppercase;letter-spacing:0.04em;color:var(--on-amber,#0b0b0d)">{{ makesText }}</span>
+  </div>
+</div>
+
+<section style="max-width:1180px;margin:0 auto;padding:clamp(64px,9vw,110px) clamp(20px,5vw,52px)">
+  <div data-reveal style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:44px">
+    <div>
+      <div style="font:700 12px/1 'Space Mono',monospace;letter-spacing:0.24em;color:var(--amber-ink,#FFB020);margin-bottom:14px">// WHAT WE DO</div>
+      <h2 style="margin:0;font:400 clamp(34px,5vw,58px)/0.95 'Anton',sans-serif;text-transform:uppercase;color:var(--ink,#f4f4f2)">Major &amp; minor<br>auto repair</h2>
+    </div>
+    <a href="services.dc.html" style="text-decoration:none;font:700 13px/1 'Barlow Condensed',sans-serif;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink,#f4f4f2);border-bottom:2px solid #FFB020;padding-bottom:5px" style-hover="color:var(--amber-ink,#FFB020)">All services →</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+    <sc-for list="{{ services }}" as="svc" hint-placeholder-count="4">
+      <a href="services.dc.html" data-reveal data-reveal-delay="{{ svc.delay }}" style="text-decoration:none;display:block;background:var(--panel,#15151a);border:1px solid var(--line,rgba(255,255,255,.09));border-radius:5px;padding:30px 26px 34px;position:relative;overflow:hidden" style-hover="border-color:rgba(255,176,32,0.6)">
+        <span style="font:400 34px/1 'Anton',sans-serif;color:var(--ghost,#26262c)">{{ svc.num }}</span>
+        <div style="height:1px;background:var(--line,rgba(255,255,255,.09));margin:18px 0 20px"></div>
+        <h3 style="margin:0 0 10px;font:600 21px/1.1 'Barlow Condensed',sans-serif;letter-spacing:0.02em;text-transform:uppercase;color:var(--ink,#f4f4f2)">{{ svc.title }}</h3>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted2,#98989b)">{{ svc.desc }}</p>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--line,rgba(255,255,255,.09));background:var(--bg-alt,#111116)">
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,100px) clamp(20px,5vw,52px)">
+    <div data-reveal style="margin-bottom:40px">
+      <div style="font:700 12px/1 'Space Mono',monospace;letter-spacing:0.24em;color:var(--amber-ink,#FFB020);margin-bottom:14px">// QUICK DIAGNOSIS</div>
+      <h2 style="margin:0 0 12px;font:400 clamp(32px,4.6vw,54px)/0.95 'Anton',sans-serif;text-transform:uppercase;color:var(--ink,#f4f4f2)">What's your car telling you?</h2>
+      <p style="margin:0;max-width:560px;font-size:16px;line-height:1.6;color:var(--muted,#b6b6b8)">Pick the symptom that sounds familiar and we'll point you at the likely service — a head start before you even call.</p>
+    </div>
+    <div data-reveal data-reveal-delay="0.1" style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(20px,3vw,36px);align-items:start">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <sc-for list="{{ symptoms }}" as="s" hint-placeholder-count="8">
+          <button onClick="{{ s.onClick }}" style="{{ s.style }}" style-hover="border-color:rgba(255,176,32,0.7)">{{ s.label }}</button>
+        </sc-for>
+      </div>
+      <div style="background:var(--panel,#15151a);border:1px solid var(--line2,rgba(255,255,255,.15));border-radius:6px;overflow:hidden;position:sticky;top:94px">
+        <div style="height:5px;background:repeating-linear-gradient(-45deg,#FFB020 0 16px,var(--panel,#15151a) 16px 32px)"></div>
+        <div style="padding:clamp(26px,3.4vw,40px)">
+          <div style="font:700 11px/1 'Space Mono',monospace;letter-spacing:0.22em;color:var(--muted3,#8a8a8d);margin-bottom:14px">LIKELY SERVICE</div>
+          <h3 style="margin:0 0 16px;font:400 clamp(26px,3.2vw,40px)/0.98 'Anton',sans-serif;text-transform:uppercase;color:var(--ink,#f4f4f2)">{{ result.service }}</h3>
+          <p style="margin:0 0 16px;font-size:15.5px;line-height:1.65;color:var(--muted,#b6b6b8)">{{ result.desc }}</p>
+          <p style="margin:0 0 26px;font:400 13.5px/1.6 'Space Mono',monospace;color:var(--amber-ink,#FFB020)">{{ result.note }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px">
+            <a href="tel:5123888993" style="text-decoration:none;background:#FFB020;color:var(--on-amber,#0b0b0d);font:700 13.5px/1 'Barlow Condensed',sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:13px 22px;border-radius:3px" style-hover="background:#ffc247">Call about this</a>
+            <a href="services.dc.html" style="text-decoration:none;color:var(--ink,#f4f4f2);font:700 13.5px/1 'Barlow Condensed',sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:13px 22px;border-radius:3px;border:1px solid var(--line3,rgba(255,255,255,.22))" style-hover="border-color:var(--amber-ink,#FFB020);color:var(--amber-ink,#FFB020)">All services →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;border-top:1px solid var(--line,rgba(255,255,255,.09));border-bottom:1px solid var(--line,rgba(255,255,255,.09))">
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,100px) clamp(20px,5vw,52px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,72px);align-items:center">
+    <div data-reveal>
+      <div style="font:700 12px/1 'Space Mono',monospace;letter-spacing:0.24em;color:var(--amber-ink,#FFB020);margin-bottom:18px">// OUR COMMUNITY</div>
+      <h2 style="margin:0 0 24px;font:400 clamp(32px,4.6vw,54px)/0.95 'Anton',sans-serif;text-transform:uppercase;color:var(--ink,#f4f4f2)">Community is<br>important to us</h2>
+      <p style="margin:0 0 18px;font-size:16px;line-height:1.65;color:var(--muted,#b6b6b8);font-weight:500">Proud to serve and live in the Round Rock Area.</p>
+      <p style="margin:0 0 18px;font-size:16px;line-height:1.65;color:var(--muted,#b6b6b8)">Camdyn Auto Repair loves being a part of the Round Rock Community and having the opportunity to service vehicles from several area non-profit agencies and schools.</p>
+      <p style="margin:0;font:400 22px/1 'Anton',sans-serif;text-transform:uppercase;color:var(--amber-ink,#FFB020)">It is our honor!</p>
+    </div>
+    <div data-reveal data-reveal-delay="0.12" style="position:relative">
+      <div style="position:absolute;inset:0;transform:translate(16px,16px);border:1px solid rgba(255,176,32,0.4);border-radius:5px"></div>
+      <div style="position:relative;border-radius:5px;overflow:hidden;border:1px solid var(--line,rgba(255,255,255,.09))">
+        <img src="https://img1.wsimg.com/isteam/ip/9d239fb9-150c-4cb6-bc6e-737b3db33410/grimm-9104%5B1%5D.jpg/:/rs=w:900,cg:true,m" alt="The Grimm family" style="display:block;width:100%;height:auto;transition:transform .6s cubic-bezier(.22,.61,.36,1)" style-hover="transform:scale(1.045)">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;overflow:hidden;background:var(--bg,#0b0b0d)">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:8px;background:repeating-linear-gradient(-45deg,#FFB020 0 20px,var(--bg,#0b0b0d) 20px 40px)"></div>
+  <div data-reveal style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,5vw,52px);text-align:center">
+    <h2 style="margin:0 0 14px;font:400 clamp(30px,4.4vw,52px)/0.98 'Anton',sans-serif;text-transform:uppercase;color:var(--ink,#f4f4f2)">Ready when you are</h2>
+    <p style="margin:0 0 32px;font-size:17px;color:var(--muted,#b6b6b8)">Call us @ 512.388.8993 or text @ 512.751.7003</p>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+      <a href="tel:5123888993" style="text-decoration:none;background:#FFB020;color:var(--on-amber,#0b0b0d);font:700 15px/1 'Barlow Condensed',sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:16px 30px;border-radius:3px" style-hover="background:#ffc247">Call the shop</a>
+      <a href="contact.dc.html" style="text-decoration:none;color:var(--ink,#f4f4f2);font:700 15px/1 'Barlow Condensed',sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:16px 30px;border-radius:3px;border:1px solid var(--line3,rgba(255,255,255,.22))" style-hover="border-color:var(--amber-ink,#FFB020);color:var(--amber-ink,#FFB020)">Contact us →</a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { symptom: 0 };
+  componentDidMount() {
+    const go = () => window.FX ? window.FX.init() : setTimeout(go, 80);
+    go();
+  }
+  symptomData() {
+    return [
+      { label: 'Brakes squeal, grind, or feel spongy', service: 'Brake Service', desc: 'We service all brake components, including brake pads, rotors, calipers, brake lines, hardware, and brake fluid service.', note: '// A soft or spongy pedal often means contaminated brake fluid — a flush restores near-new performance.' },
+      { label: 'AC is blowing warm', service: 'AC Repair', desc: "We provide repairs on all AC issues + symptoms — evacuation + recharge, diagnosis, and all major AC repairs. If your AC is not functioning properly, don't sweat it.", note: '// We can help you beat this Texas heat.' },
+      { label: "Won't start, or cranks slowly", service: 'Battery Testing + Replacement', desc: 'We test batteries; replace batteries, battery terminals and battery cables.', note: '// A quick test tells us if it\u2019s the battery, terminals, or cables.' },
+      { label: 'Sluggish throttle or worse fuel mileage', service: 'Injector & Throttle Body Cleaning', desc: 'Removes excess carbon buildup to give your car better throttle response and fuel mileage.', note: '// Carbon buildup creeps up slowly — most drivers feel the difference right away.' },
+      { label: 'Running hot in the Texas heat', service: 'Engine Coolant Service', desc: 'Removes unwanted buildup from the engine\u2019s cooling system, allowing your vehicle to keep its cool in the Texas heat.', note: '// Cooling problems get expensive fast — catch them early.' },
+      { label: 'Steering feels heavy or whines', service: 'Power Steering Fluid Service', desc: 'As components wear, metal particles contaminate the fluid, causing seals to leak and components to fail. Regular fluid changes protect the hoses, pistons, valves, seals, and the pump itself.', note: '// Cheap insurance for an expensive system.' },
+      { label: 'Road noise or uneven tire wear', service: 'Tire Rotation', desc: '"Wear" it really counts: maximizing the life of your tires and avoiding uneven wear patterns that create road noise and premature tire replacement.', note: '// Rotating on schedule is the cheapest way to stretch a set of tires.' },
+      { label: "Not sure — something's off", service: 'Diagnosis', desc: 'Describe what you\u2019re seeing, hearing, or feeling and we\u2019ll help you figure it out — and help you prioritize repairs, if needed.', note: '// Educating our customers on the repairs they need is part of our promise.' },
+    ];
+  }
+  renderVals() {
+    const makes = ['Toyota','Honda','Chevrolet','Ford','BMW','Nissan','Mercedes-Benz','Acura','Dodge','Lexus','Volkswagen','Jeep','Corvette','Cadillac','Mazda','GMC','Chrysler','Subaru','Audi','Volvo','Hyundai','Lincoln','Land Rover','Kia','Buick'];
+    const sep = '\u00A0\u00A0\u00A0/\u00A0\u00A0\u00A0';
+    const data = this.symptomData();
+    const cur = this.state.symptom;
+    const symptoms = data.map((d, i) => {
+      const on = i === cur;
+      return {
+        label: d.label,
+        onClick: () => this.setState({ symptom: i }),
+        style: {
+          textAlign: 'left',
+          cursor: 'pointer',
+          font: "600 15px/1.3 'Barlow Condensed', sans-serif",
+          letterSpacing: '0.05em',
+          textTransform: 'uppercase',
+          color: on ? 'var(--amber-ink,#FFB020)' : 'var(--ink-soft,#cfcfce)',
+          background: on ? 'rgba(255,176,32,0.09)' : 'transparent',
+          border: on ? '1px solid rgba(255,176,32,0.7)' : '1px solid var(--line2,rgba(255,255,255,.15))',
+          borderLeft: on ? '4px solid #FFB020' : '4px solid var(--line2,rgba(255,255,255,.15))',
+          borderRadius: '4px',
+          padding: '14px 16px',
+          transition: 'all .18s',
+        },
+      };
+    });
+    return {
+      makesText: makes.join(sep) + sep,
+      services: [
+        { num: '01', title: 'Routine Service', desc: 'Oil changes, tire rotation, coolant, brake, and power-steering fluid service.', delay: '0' },
+        { num: '02', title: 'Brakes & Repair', desc: 'Pads, rotors, calipers, lines, hardware, and full brake-fluid service.', delay: '0.08' },
+        { num: '03', title: 'AC Repair', desc: 'Evacuation + recharge, diagnosis, and all major AC repairs. Beat the Texas heat.', delay: '0.16' },
+        { num: '04', title: 'Battery Service', desc: 'We test and replace batteries, terminals, and battery cables.', delay: '0.24' },
+      ],
+      symptoms,
+      result: data[cur],
+    };
+  }
+}
+</script>
+</body>
+</html>
