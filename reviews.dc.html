@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script>try{var t=localStorage.getItem('car-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}setTimeout(function(){document.documentElement.classList.add('theme-anim');},350);</script>
+  <script src="./fx.js"></script>
+  <style>
+    :root,[data-theme="dark"]{--bg:#0b0b0d;--bg-alt:#111116;--panel:#15151a;--ink:#f4f4f2;--ink-soft:#cfcfce;--muted:#b6b6b8;--muted2:#98989b;--muted3:#8a8a8d;--faint:#77777a;--ghost:#26262c;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.15);--line3:rgba(255,255,255,.22);--dot:rgba(255,255,255,.05);--nav-bg:rgba(11,11,13,.86);--amber-ink:#FFB020;--on-amber:#0b0b0d}
+    [data-theme="light"]{--bg:#efeae1;--bg-alt:#ffffff;--panel:#ffffff;--ink:#1b1a16;--ink-soft:#3a362f;--muted:#55514a;--muted2:#6d6960;--muted3:#8a857b;--faint:#a8a297;--ghost:#e6e0d3;--line:rgba(0,0,0,.10);--line2:rgba(0,0,0,.15);--line3:rgba(0,0,0,.24);--dot:rgba(0,0,0,.06);--nav-bg:rgba(239,234,225,.86);--amber-ink:#b26a00;--on-amber:#0b0b0d}
+    html.theme-anim body,html.theme-anim nav,html.theme-anim footer,html.theme-anim section,html.theme-anim div,html.theme-anim span,html.theme-anim p,html.theme-anim h1,html.theme-anim h2,html.theme-anim h3,html.theme-anim label,html.theme-anim input,html.theme-anim textarea,html.theme-anim button,html.theme-anim a{transition:background-color .3s ease,border-color .3s ease,color .25s ease}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg,#0b0b0d)}
+    #dc-root{background:var(--bg,#0b0b0d)}
+    body{background:var(--bg,#0b0b0d);color:var(--ink,#f4f4f2);font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+  </style>
+</helmet>
+<dc-import name="SiteNav" active="reviews" hint-size="100%,74px"></dc-import>
+<dc-import name="PageHeader" kicker="// REVIEWS" title="Reviews" subtitle="Hear from our community. Check out this interview with Devony Wilmot." hint-size="100%,280px"></dc-import>
+
+<section style="border-bottom:1px solid var(--line,rgba(255,255,255,.09))">
+  <div data-reveal style="max-width:1000px;margin:0 auto;padding:clamp(52px,7vw,90px) clamp(20px,5vw,52px)">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+      <span style="width:26px;height:2px;background:#FFB020"></span>
+      <span style="font:700 12px/1 'Space Mono',monospace;letter-spacing:0.2em;color:var(--amber-ink,#FFB020)">INTERVIEW · DEVONY WILMOT</span>
+    </div>
+    <div style="position:relative;width:100%;padding-top:56.25%;border-radius:6px;overflow:hidden;border:1px solid var(--line2,rgba(255,255,255,.15));background:#000">
+      <iframe src="https://www.youtube.com/embed/oDAURKnCqzI?rel=0&showinfo=0" title="Interview with Devony Wilmot" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-alt,#111116);border-bottom:1px solid var(--line,rgba(255,255,255,.09))">
+  <div data-reveal style="max-width:1000px;margin:0 auto;padding:clamp(48px,6vw,80px) clamp(20px,5vw,52px);text-align:center">
+    <div style="font:700 12px/1 'Space Mono',monospace;letter-spacing:0.24em;color:var(--amber-ink,#FFB020);margin-bottom:16px">// LEAVE A REVIEW</div>
+    <h2 style="margin:0 0 14px;font:400 clamp(28px,4vw,48px)/0.98 'Anton',sans-serif;text-transform:uppercase;color:var(--ink,#f4f4f2)">Worked with us? Tell others.</h2>
+    <p style="margin:0 auto 32px;max-width:460px;font-size:16px;line-height:1.6;color:var(--muted,#b6b6b8)">Reviews help other Round Rock drivers find an auto shop they can trust. We'd love to hear from you.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
+      <sc-for list="{{ platforms }}" as="p" hint-placeholder-count="3">
+        <a href="{{ p.href }}" target="_blank" rel="noopener" style="text-decoration:none;font:700 13px/1 'Barlow Condensed',sans-serif;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink,#f4f4f2);border:1px solid var(--line3,rgba(255,255,255,.22));padding:14px 22px;border-radius:3px" style-hover="border-color:var(--amber-ink,#FFB020);color:var(--amber-ink,#FFB020)">{{ p.label }}</a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;overflow:hidden;background:var(--bg,#0b0b0d)">
+  <div style="position:absolute;right:0;top:0;bottom:0;width:8px;background:repeating-linear-gradient(-45deg,#FFB020 0 20px,var(--bg,#0b0b0d) 20px 40px)"></div>
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(52px,7vw,88px) clamp(20px,5vw,52px);text-align:center">
+    <h2 style="margin:0 0 14px;font:400 clamp(28px,4vw,48px)/0.98 'Anton',sans-serif;text-transform:uppercase;color:var(--ink,#f4f4f2)">Come see us</h2>
+    <p style="margin:0 0 30px;font-size:17px;color:var(--muted,#b6b6b8)">Call us @ 512.388.8993 or text @ 512.751.7003</p>
+    <a href="contact.dc.html" style="text-decoration:none;background:#FFB020;color:var(--on-amber,#0b0b0d);font:700 15px/1 'Barlow Condensed',sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:16px 30px;border-radius:3px" style-hover="background:#ffc247">Contact us →</a>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const go = () => window.FX ? window.FX.init() : setTimeout(go, 80);
+    go();
+  }
+  renderVals() {
+    return { platforms: [
+      { label: 'Review on Yelp', href: 'https://www.yelp.com/biz/camdyn-auto-repair-round-rock' },
+      { label: 'Review on Facebook', href: 'https://www.facebook.com/camdynautorepair/' },
+      { label: 'Follow on Instagram', href: 'https://www.instagram.com/camdynautorepair/' },
+    ]};
+  }
+}
+</script>
+</body>
+</html>

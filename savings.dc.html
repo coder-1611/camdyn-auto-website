@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script>try{var t=localStorage.getItem('car-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}setTimeout(function(){document.documentElement.classList.add('theme-anim');},350);</script>
+  <script src="./fx.js"></script>
+  <style>
+    :root,[data-theme="dark"]{--bg:#0b0b0d;--bg-alt:#111116;--panel:#15151a;--ink:#f4f4f2;--ink-soft:#cfcfce;--muted:#b6b6b8;--muted2:#98989b;--muted3:#8a8a8d;--faint:#77777a;--ghost:#26262c;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.15);--line3:rgba(255,255,255,.22);--dot:rgba(255,255,255,.05);--nav-bg:rgba(11,11,13,.86);--amber-ink:#FFB020;--on-amber:#0b0b0d}
+    [data-theme="light"]{--bg:#efeae1;--bg-alt:#ffffff;--panel:#ffffff;--ink:#1b1a16;--ink-soft:#3a362f;--muted:#55514a;--muted2:#6d6960;--muted3:#8a857b;--faint:#a8a297;--ghost:#e6e0d3;--line:rgba(0,0,0,.10);--line2:rgba(0,0,0,.15);--line3:rgba(0,0,0,.24);--dot:rgba(0,0,0,.06);--nav-bg:rgba(239,234,225,.86);--amber-ink:#b26a00;--on-amber:#0b0b0d}
+    html.theme-anim body,html.theme-anim nav,html.theme-anim footer,html.theme-anim section,html.theme-anim div,html.theme-anim span,html.theme-anim p,html.theme-anim h1,html.theme-anim h2,html.theme-anim h3,html.theme-anim label,html.theme-anim input,html.theme-anim textarea,html.theme-anim button,html.theme-anim a{transition:background-color .3s ease,border-color .3s ease,color .25s ease}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg,#0b0b0d)}
+    #dc-root{background:var(--bg,#0b0b0d)}
+    body{background:var(--bg,#0b0b0d);color:var(--ink,#f4f4f2);font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    input[type=range]{accent-color:#FFB020;width:100%;cursor:pointer}
+  </style>
+</helmet>
+<dc-import name="SiteNav" active="savings" hint-size="100%,74px"></dc-import>
+<dc-import name="PageHeader" kicker="// SAVINGS" title="Savings" subtitle="Part of our promise is helping our customers save money and save time." hint-size="100%,280px"></dc-import>
+
+<section style="border-bottom:1px solid var(--line,rgba(255,255,255,.09))">
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(52px,7vw,90px) clamp(20px,5vw,52px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,44px);align-items:start">
+
+    <div data-reveal style="background:var(--panel,#15151a);border:1px solid var(--line2,rgba(255,255,255,.15));border-radius:6px;overflow:hidden">
+      <div style="height:6px;background:repeating-linear-gradient(-45deg,#FFB020 0 18px,var(--panel,#15151a) 18px 36px)"></div>
+      <div style="padding:clamp(30px,4vw,44px)">
+        <div style="font:700 12px/1 'Space Mono',monospace;letter-spacing:0.24em;color:var(--amber-ink,#FFB020);margin-bottom:18px">CURRENT SPECIALS</div>
+        <h2 style="margin:0 0 16px;font:400 clamp(28px,3.6vw,46px)/0.95 'Anton',sans-serif;text-transform:uppercase;color:var(--ink,#f4f4f2)">Ask about this month's savings</h2>
+        <p style="margin:0 0 30px;font-size:15.5px;line-height:1.65;color:var(--muted,#b6b6b8)">Give us a call or send a text and we'll let you know about current specials and how we can help you save on your repair or maintenance.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="tel:5123888993" style="text-decoration:none;background:#FFB020;color:var(--on-amber,#0b0b0d);font:700 14px/1 'Barlow Condensed',sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:15px 24px;border-radius:3px" style-hover="background:#ffc247">Call 512.388.8993</a>
+          <a href="sms:5127517003" style="text-decoration:none;color:var(--ink,#f4f4f2);font:700 14px/1 'Barlow Condensed',sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:15px 24px;border-radius:3px;border:1px solid var(--line3,rgba(255,255,255,.22))" style-hover="border-color:var(--amber-ink,#FFB020);color:var(--amber-ink,#FFB020)">Text 512.751.7003</a>
+        </div>
+        <div style="height:1px;background:var(--line,rgba(255,255,255,.09));margin:30px 0 22px"></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+          <div style="text-align:center">
+            <div style="font:400 22px/1 'Anton',sans-serif;color:var(--amber-ink,#FFB020);margin-bottom:8px">Fair</div>
+            <div style="font:600 13px/1.2 'Barlow Condensed',sans-serif;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted,#b6b6b8)">Honest pricing</div>
+          </div>
+          <div style="text-align:center;border-left:1px solid var(--line,rgba(255,255,255,.09));border-right:1px solid var(--line,rgba(255,255,255,.09))">
+            <div style="font:400 22px/1 'Anton',sans-serif;color:var(--amber-ink,#FFB020);margin-bottom:8px">Priority</div>
+            <div style="font:600 13px/1.2 'Barlow Condensed',sans-serif;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted,#b6b6b8)">We help you prioritize</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font:400 22px/1 'Anton',sans-serif;color:var(--amber-ink,#FFB020);margin-bottom:8px">Local</div>
+            <div style="font:600 13px/1.2 'Barlow Condensed',sans-serif;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted,#b6b6b8)">Family-owned</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-reveal data-reveal-delay="0.12">
+      <div style="font:700 12px/1 'Space Mono',monospace;letter-spacing:0.24em;color:var(--amber-ink,#FFB020);margin-bottom:16px">// MAINTENANCE PLANNER</div>
+      <h2 style="margin:0 0 12px;font:400 clamp(26px,3.4vw,42px)/0.95 'Anton',sans-serif;text-transform:uppercase;color:var(--ink,#f4f4f2)">The cheapest repair is the one you prevent</h2>
+      <p style="margin:0 0 28px;font-size:15px;line-height:1.6;color:var(--muted,#b6b6b8)">Slide to your odometer and see which preventative services are worth asking about. Typical intervals vary by vehicle — we'll help you prioritize what your car actually needs.</p>
+      <div style="background:var(--bg-alt,#111116);border:1px solid var(--line,rgba(255,255,255,.09));border-radius:6px;padding:26px 26px 30px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:10px">
+          <span style="font:700 11px/1 'Space Mono',monospace;letter-spacing:0.2em;color:var(--muted3,#8a8a8d)">ON THE ODOMETER</span>
+          <span style="font:400 34px/1 'Anton',sans-serif;color:var(--amber-ink,#FFB020)">{{ milesLabel }}</span>
+        </div>
+        <input type="range" min="5000" max="150000" step="5000" value="{{ miles }}" onInput="{{ onMiles }}">
+        <div style="display:flex;justify-content:space-between;font:400 11px/1 'Space Mono',monospace;color:var(--muted3,#8a8a8d);margin:6px 0 24px"><span>5K</span><span>150K</span></div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <sc-for list="{{ plan }}" as="p" hint-placeholder-count="6">
+            <div style="{{ p.style }}">
+              <span style="{{ p.dotStyle }}"></span>
+              <div>
+                <div style="font:600 15.5px/1.2 'Barlow Condensed',sans-serif;letter-spacing:0.04em;text-transform:uppercase">{{ p.label }}</div>
+                <div style="font-size:12.5px;line-height:1.45;color:var(--muted2,#98989b);margin-top:3px">{{ p.note }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { miles: 60000 };
+  componentDidMount() {
+    const go = () => window.FX ? window.FX.init() : setTimeout(go, 80);
+    go();
+  }
+  renderVals() {
+    const miles = this.state.miles;
+    const defs = [
+      { label: 'Oil Change', from: 0, note: 'Conventional or synthetic, with a quality filter — the backbone of every maintenance schedule.' },
+      { label: 'Tire Rotation', from: 5000, note: 'Even wear means less road noise and tires that last their full life.' },
+      { label: 'Injector & Throttle Body Cleaning', from: 30000, note: 'Clears carbon buildup for better throttle response and fuel mileage.' },
+      { label: 'Brake Fluid Service', from: 40000, note: 'Brake fluid absorbs moisture over time — a flush restores a firm pedal.' },
+      { label: 'Engine Coolant Service', from: 50000, note: 'Keeps the cooling system clean so your vehicle keeps its cool in the Texas heat.' },
+      { label: 'Power Steering Fluid Service', from: 60000, note: 'Fresh fluid protects the hoses, seals, valves, and the pump itself.' },
+    ];
+    const plan = defs.map((d) => {
+      const on = miles >= d.from;
+      return {
+        label: d.label,
+        note: on ? d.note : ('Typically comes into play around ' + Math.round(d.from / 1000) + 'K miles.'),
+        style: {
+          display: 'flex', gap: '13px', alignItems: 'flex-start',
+          padding: '13px 15px', borderRadius: '5px',
+          border: on ? '1px solid rgba(255,176,32,0.55)' : '1px solid var(--line,rgba(255,255,255,.09))',
+          background: on ? 'rgba(255,176,32,0.07)' : 'transparent',
+          color: on ? 'var(--ink,#f4f4f2)' : 'var(--muted3,#8a8a8d)',
+          opacity: on ? 1 : 0.75,
+          transition: 'all .25s ease',
+        },
+        dotStyle: {
+          flex: 'none', width: '9px', height: '9px', marginTop: '5px',
+          transform: 'rotate(45deg)',
+          background: on ? '#FFB020' : 'var(--line3,rgba(255,255,255,.22))',
+          transition: 'background .25s ease',
+        },
+      };
+    });
+    return {
+      miles: this.state.miles,
+      milesLabel: Math.round(miles / 1000) + 'K mi',
+      onMiles: (e) => this.setState({ miles: parseInt(e.target.value, 10) }),
+      plan,
+    };
+  }
+}
+</script>
+</body>
+</html>

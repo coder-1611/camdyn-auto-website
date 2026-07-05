@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<footer style="position:relative;background:var(--bg,#0b0b0d);border-top:1px solid var(--line,rgba(255,255,255,.09));color:var(--ink-soft,#cfcfce);font-family:'Barlow',sans-serif;overflow:hidden">
+  <div style="height:6px;width:100%;background:repeating-linear-gradient(-45deg,#FFB020 0 22px,var(--bg,#0b0b0d) 22px 44px)"></div>
+  <div style="max-width:1180px;margin:0 auto;padding:64px clamp(20px,5vw,52px) 40px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:48px">
+    <div>
+      <div style="display:flex;align-items:center;gap:13px;margin-bottom:20px">
+        <span style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;background:#FFB020;color:var(--on-amber,#0b0b0d);font:400 33px/1 'Anton',sans-serif;clip-path:polygon(0 0,100% 0,100% 74%,74% 100%,0 100%)">C</span>
+        <span style="display:flex;flex-direction:column;line-height:1">
+          <span style="font:400 23px/0.92 'Anton',sans-serif;color:var(--ink,#f4f4f2);text-transform:uppercase">Camdyn</span>
+          <span style="font:700 9px/1 'Space Mono',monospace;letter-spacing:0.34em;color:var(--amber-ink,#FFB020);margin-top:3px">AUTO&nbsp;REPAIR</span>
+        </span>
+      </div>
+      <p style="margin:0 0 18px;max-width:340px;font-size:14.5px;line-height:1.6;color:var(--muted2,#98989b)">We love our customers, so feel free to call or e-mail us at anytime. If contacting after hours just leave a message and we will respond promptly.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ socials }}" as="s" hint-placeholder-count="5">
+          <a href="{{ s.href }}" target="_blank" rel="noopener" style="font:700 11px/1 'Space Mono',monospace;letter-spacing:0.12em;color:var(--ink-soft,#cfcfce);text-decoration:none;border:1px solid var(--line2,rgba(255,255,255,.15));padding:8px 11px;border-radius:3px" style-hover="border-color:var(--amber-ink,#FFB020);color:var(--amber-ink,#FFB020)">{{ s.label }}</a>
+        </sc-for>
+      </div>
+    </div>
+    <div>
+      <div style="font:700 11px/1 'Space Mono',monospace;letter-spacing:0.22em;color:var(--amber-ink,#FFB020);margin-bottom:18px">// VISIT</div>
+      <p style="margin:0 0 6px;font:600 15px/1.5 'Barlow',sans-serif;color:var(--ink,#f4f4f2)">Camdyn Auto Repair</p>
+      <p style="margin:0 0 16px;font-size:14.5px;line-height:1.6;color:var(--muted2,#98989b)">3584 Rockin' J Rd. Bldg. 4<br>Round Rock, TX 78665</p>
+      <a href="https://maps.google.com/?q=3584+Rockin+J+Rd+Round+Rock+TX+78665" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;font:700 12px/1 'Barlow Condensed',sans-serif;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink,#f4f4f2);text-decoration:none;border-bottom:1px solid rgba(255,176,32,0.5);padding-bottom:3px" style-hover="color:var(--amber-ink,#FFB020)">Get directions →</a>
+      <p style="margin:20px 0 0;font-size:13px;line-height:1.7;color:var(--muted3,#8a8a8d)">Serving Round Rock · Hutto · Georgetown, TX</p>
+    </div>
+    <div>
+      <div style="font:700 11px/1 'Space Mono',monospace;letter-spacing:0.22em;color:var(--amber-ink,#FFB020);margin-bottom:18px">// CONTACT</div>
+      <a href="tel:5123888993" style="display:block;text-decoration:none;margin-bottom:14px">
+        <span style="display:block;font:700 10px/1 'Space Mono',monospace;letter-spacing:0.16em;color:var(--muted3,#8a8a8d);margin-bottom:5px">CALL</span>
+        <span style="font:400 22px/1 'Anton',sans-serif;color:var(--ink,#f4f4f2)">512.388.8993</span>
+      </a>
+      <a href="sms:5127517003" style="display:block;text-decoration:none;margin-bottom:14px">
+        <span style="display:block;font:700 10px/1 'Space Mono',monospace;letter-spacing:0.16em;color:var(--muted3,#8a8a8d);margin-bottom:5px">TEXT</span>
+        <span style="font:400 22px/1 'Anton',sans-serif;color:var(--ink,#f4f4f2)">512.751.7003</span>
+      </a>
+      <a href="mailto:camdynautorepair@outlook.com" style="display:block;text-decoration:none">
+        <span style="display:block;font:700 10px/1 'Space Mono',monospace;letter-spacing:0.16em;color:var(--muted3,#8a8a8d);margin-bottom:5px">EMAIL</span>
+        <span style="font:600 15px/1.3 'Barlow',sans-serif;color:var(--ink,#f4f4f2);word-break:break-all">camdynautorepair@outlook.com</span>
+      </a>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--line,rgba(255,255,255,.09));max-width:1180px;margin:0 auto;padding:22px clamp(20px,5vw,52px);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px">
+    <span style="font:400 12px/1 'Space Mono',monospace;letter-spacing:0.06em;color:var(--faint,#77777a)">Copyright © 2018 Camdyn Auto Repair — All Rights Reserved.</span>
+    <span style="font:400 12px/1 'Space Mono',monospace;letter-spacing:0.06em;color:var(--faint,#77777a)">Family-owned · Round Rock, TX</span>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:360}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { socials: [
+      { label: 'FACEBOOK', href: 'https://www.facebook.com/camdynautorepair/' },
+      { label: 'INSTAGRAM', href: 'https://www.instagram.com/camdynautorepair/' },
+      { label: 'X', href: 'https://www.x.com/CamdynAutoRepair' },
+      { label: 'LINKEDIN', href: 'https://www.linkedin.com/in/Camdyn Auto Repair' },
+      { label: 'YELP', href: 'https://www.yelp.com/biz/camdyn-auto-repair-round-rock' },
+    ]};
+  }
+}
+</script>
+</body>
+</html>

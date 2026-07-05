@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script>try{var t=localStorage.getItem('car-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}setTimeout(function(){document.documentElement.classList.add('theme-anim');},350);</script>
+  <script src="./fx.js"></script>
+  <style>
+    :root,[data-theme="dark"]{--bg:#0b0b0d;--bg-alt:#111116;--panel:#15151a;--ink:#f4f4f2;--ink-soft:#cfcfce;--muted:#b6b6b8;--muted2:#98989b;--muted3:#8a8a8d;--faint:#77777a;--ghost:#26262c;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.15);--line3:rgba(255,255,255,.22);--dot:rgba(255,255,255,.05);--nav-bg:rgba(11,11,13,.86);--amber-ink:#FFB020;--on-amber:#0b0b0d}
+    [data-theme="light"]{--bg:#efeae1;--bg-alt:#ffffff;--panel:#ffffff;--ink:#1b1a16;--ink-soft:#3a362f;--muted:#55514a;--muted2:#6d6960;--muted3:#8a857b;--faint:#a8a297;--ghost:#e6e0d3;--line:rgba(0,0,0,.10);--line2:rgba(0,0,0,.15);--line3:rgba(0,0,0,.24);--dot:rgba(0,0,0,.06);--nav-bg:rgba(239,234,225,.86);--amber-ink:#b26a00;--on-amber:#0b0b0d}
+    html.theme-anim body,html.theme-anim nav,html.theme-anim footer,html.theme-anim section,html.theme-anim div,html.theme-anim span,html.theme-anim p,html.theme-anim h1,html.theme-anim h2,html.theme-anim h3,html.theme-anim label,html.theme-anim input,html.theme-anim textarea,html.theme-anim button,html.theme-anim a{transition:background-color .3s ease,border-color .3s ease,color .25s ease}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg,#0b0b0d)}
+    #dc-root{background:var(--bg,#0b0b0d)}
+    body{background:var(--bg,#0b0b0d);color:var(--ink,#f4f4f2);font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+  </style>
+</helmet>
+<dc-import name="SiteNav" active="about" hint-size="100%,74px"></dc-import>
+<dc-import name="PageHeader" kicker="// ABOUT US" title="About Us" subtitle="Camdyn Auto Repair is a family-owned and operated auto repair shop in Round Rock, TX." hint-size="100%,280px"></dc-import>
+
+<section style="border-bottom:1px solid var(--line,rgba(255,255,255,.09))">
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,100px) clamp(20px,5vw,52px);display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(32px,6vw,72px);align-items:center">
+    <div data-reveal style="position:relative">
+      <div style="position:absolute;inset:0;transform:translate(-16px,16px);border:1px solid rgba(255,176,32,0.4);border-radius:5px"></div>
+      <div style="position:relative;border-radius:5px;overflow:hidden;border:1px solid var(--line,rgba(255,255,255,.09))">
+        <img src="https://img1.wsimg.com/isteam/ip/9d239fb9-150c-4cb6-bc6e-737b3db33410/grimm-9958%5B1%5D.jpg/:/rs=w:700,h:700,cg:true,m/cr=w:700,h:700" alt="Camdyn Auto Repair" style="display:block;width:100%;height:auto;transition:transform .6s cubic-bezier(.22,.61,.36,1)" style-hover="transform:scale(1.045)">
+      </div>
+    </div>
+    <div data-reveal data-reveal-delay="0.12">
+      <div style="font:700 12px/1 'Space Mono',monospace;letter-spacing:0.24em;color:var(--amber-ink,#FFB020);margin-bottom:16px">// OUR QUALITY PROMISE</div>
+      <h2 style="margin:0 0 24px;font:400 clamp(30px,4.4vw,52px)/0.95 'Anton',sans-serif;text-transform:uppercase;color:var(--ink,#f4f4f2)">Our goal is simple.<br>Help our customers.</h2>
+      <p style="margin:0;font-size:16.5px;line-height:1.75;color:var(--muted,#b6b6b8)">At Camdyn Auto Repair, our goal is simple. It is to help our customers. To help them with their auto repair and maintenance. To help them save money. To help them save time. To help restore their trust in taking their vehicle in to an auto repair shop and mechanic. To help by educating them on the repairs they need and what they can do to be proactive in the future. To help them feel at ease when their vehicle is in need of repairs. To help them prioritize repairs, if needed. We are happy to help!</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-alt,#111116);border-bottom:1px solid var(--line,rgba(255,255,255,.09))">
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,6vw,80px) clamp(20px,5vw,52px);display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+    <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="3">
+      <div data-reveal data-reveal-delay="{{ p.delay }}" style="border-top:2px solid #FFB020;padding:22px 4px 0">
+        <div style="font:400 30px/1 'Anton',sans-serif;color:var(--amber-ink,#FFB020);margin-bottom:12px">{{ p.num }}</div>
+        <h3 style="margin:0 0 8px;font:600 22px/1.05 'Barlow Condensed',sans-serif;letter-spacing:0.02em;text-transform:uppercase;color:var(--ink,#f4f4f2)">{{ p.title }}</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--muted2,#98989b)">{{ p.desc }}</p>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section style="border-bottom:1px solid var(--line,rgba(255,255,255,.09))">
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,100px) clamp(20px,5vw,52px);display:grid;grid-template-columns:1.1fr 0.9fr;gap:clamp(32px,6vw,72px);align-items:center">
+    <div data-reveal>
+      <div style="font:700 12px/1 'Space Mono',monospace;letter-spacing:0.24em;color:var(--amber-ink,#FFB020);margin-bottom:16px">// OUR STORY</div>
+      <h2 style="margin:0 0 24px;font:400 clamp(30px,4.4vw,52px)/0.95 'Anton',sans-serif;text-transform:uppercase;color:var(--ink,#f4f4f2)">A family business,<br>built on trust</h2>
+      <p style="margin:0 0 18px;font-size:16.5px;line-height:1.75;color:var(--muted,#b6b6b8)">Camdyn Auto Repair is a family-owned and operated auto repair shop. Justin and Amanda Grimm have lived in the Round Rock area for over 10 years and fell in love with the community.</p>
+      <p style="margin:0;font-size:16.5px;line-height:1.75;color:var(--muted,#b6b6b8)">After they welcomed their daughter, Camdyn, they decided to say good-bye to the corporate world and embark on a family business and journey. Their goal is to create a successful business, doing what they love, with whom they love, within the community they love.</p>
+    </div>
+    <div data-reveal data-reveal-delay="0.12" style="position:relative">
+      <div style="position:absolute;inset:0;transform:translate(16px,16px);border:1px solid rgba(255,176,32,0.4);border-radius:5px"></div>
+      <div style="position:relative;border-radius:5px;overflow:hidden;border:1px solid var(--line,rgba(255,255,255,.09))">
+        <img src="https://img1.wsimg.com/isteam/ip/9d239fb9-150c-4cb6-bc6e-737b3db33410/grimm-9118%5B1%5D.jpg/:/rs=w:700,h:700,cg:true,m/cr=w:700,h:700" alt="Justin and Amanda Grimm" style="display:block;width:100%;height:auto;transition:transform .6s cubic-bezier(.22,.61,.36,1)" style-hover="transform:scale(1.045)">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;overflow:hidden;background:var(--bg,#0b0b0d)">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:8px;background:repeating-linear-gradient(-45deg,#FFB020 0 20px,var(--bg,#0b0b0d) 20px 40px)"></div>
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(52px,7vw,88px) clamp(20px,5vw,52px);text-align:center">
+    <h2 style="margin:0 0 14px;font:400 clamp(28px,4vw,48px)/0.98 'Anton',sans-serif;text-transform:uppercase;color:var(--ink,#f4f4f2)">We are happy to help</h2>
+    <p style="margin:0 0 30px;font-size:17px;color:var(--muted,#b6b6b8)">Call us @ 512.388.8993 or text @ 512.751.7003</p>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+      <a href="tel:5123888993" style="text-decoration:none;background:#FFB020;color:var(--on-amber,#0b0b0d);font:700 15px/1 'Barlow Condensed',sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:16px 30px;border-radius:3px" style-hover="background:#ffc247">Call the shop</a>
+      <a href="contact.dc.html" style="text-decoration:none;color:var(--ink,#f4f4f2);font:700 15px/1 'Barlow Condensed',sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:16px 30px;border-radius:3px;border:1px solid var(--line3,rgba(255,255,255,.22))" style-hover="border-color:var(--amber-ink,#FFB020);color:var(--amber-ink,#FFB020)">Contact us →</a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const go = () => window.FX ? window.FX.init() : setTimeout(go, 80);
+    go();
+  }
+  renderVals() {
+    return { pillars: [
+      { num: '01', title: 'Save Money', desc: 'Honest repairs and clear priorities so you spend on what your vehicle actually needs.', delay: '0' },
+      { num: '02', title: 'Save Time', desc: 'Efficient service that gets you back on the road without the runaround.', delay: '0.1' },
+      { num: '03', title: 'Earn Trust', desc: 'We educate you on your repairs so you feel at ease every time you visit.', delay: '0.2' },
+    ]};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<section style="position:relative;overflow:hidden;background:var(--bg-alt,#111116);border-bottom:1px solid var(--line,rgba(255,255,255,.09))">
+  <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,var(--dot,rgba(255,255,255,.05)) 1px,transparent 0);background-size:26px 26px;opacity:0.6"></div>
+  <div style="position:absolute;top:0;left:0;right:0;height:5px;background:repeating-linear-gradient(-45deg,#FFB020 0 18px,var(--bg-alt,#111116) 18px 36px)"></div>
+  <div style="position:relative;max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,5vw,52px) clamp(40px,6vw,64px)">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+      <span style="width:26px;height:2px;background:#FFB020"></span>
+      <span style="font:700 12px/1 'Space Mono',monospace;letter-spacing:0.24em;color:var(--amber-ink,#FFB020)">{{ kicker }}</span>
+    </div>
+    <h1 style="margin:0;font:400 clamp(42px,7vw,88px)/0.9 'Anton',sans-serif;text-transform:uppercase;letter-spacing:-0.005em;color:var(--ink,#f4f4f2)">{{ title }}</h1>
+    <sc-if value="{{ subtitle }}" hint-placeholder-val="{{ true }}">
+      <p style="margin:22px 0 0;max-width:560px;font-size:clamp(15px,1.8vw,18px);line-height:1.6;color:var(--muted,#b6b6b8)">{{ subtitle }}</p>
+    </sc-if>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:260},&quot;kicker&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;// SERVICES&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Auto Repair&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;subtitle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}"></script>
+</body>
+</html>

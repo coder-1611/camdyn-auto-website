@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script>try{var t=localStorage.getItem('car-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}setTimeout(function(){document.documentElement.classList.add('theme-anim');},350);</script>
+  <script src="./fx.js"></script>
+  <style>
+    :root,[data-theme="dark"]{--bg:#0b0b0d;--bg-alt:#111116;--panel:#15151a;--ink:#f4f4f2;--ink-soft:#cfcfce;--muted:#b6b6b8;--muted2:#98989b;--muted3:#8a8a8d;--faint:#77777a;--ghost:#26262c;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.15);--line3:rgba(255,255,255,.22);--dot:rgba(255,255,255,.05);--nav-bg:rgba(11,11,13,.86);--amber-ink:#FFB020;--on-amber:#0b0b0d}
+    [data-theme="light"]{--bg:#efeae1;--bg-alt:#ffffff;--panel:#ffffff;--ink:#1b1a16;--ink-soft:#3a362f;--muted:#55514a;--muted2:#6d6960;--muted3:#8a857b;--faint:#a8a297;--ghost:#e6e0d3;--line:rgba(0,0,0,.10);--line2:rgba(0,0,0,.15);--line3:rgba(0,0,0,.24);--dot:rgba(0,0,0,.06);--nav-bg:rgba(239,234,225,.86);--amber-ink:#b26a00;--on-amber:#0b0b0d}
+    html.theme-anim body,html.theme-anim nav,html.theme-anim footer,html.theme-anim section,html.theme-anim div,html.theme-anim span,html.theme-anim p,html.theme-anim h1,html.theme-anim h2,html.theme-anim h3,html.theme-anim label,html.theme-anim input,html.theme-anim textarea,html.theme-anim button,html.theme-anim a{transition:background-color .3s ease,border-color .3s ease,color .25s ease}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg,#0b0b0d)}
+    #dc-root{background:var(--bg,#0b0b0d)}
+    body{background:var(--bg,#0b0b0d);color:var(--ink,#f4f4f2);font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    input::placeholder,textarea::placeholder{color:var(--muted3,#8a8a8d)}
+    input:focus,textarea:focus,select:focus{outline:none;border-color:#FFB020 !important}
+    @keyframes stepIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+  </style>
+</helmet>
+<dc-import name="SiteNav" active="contact" hint-size="100%,74px"></dc-import>
+<dc-import name="PageHeader" kicker="// CONTACT" title="Contact Us" subtitle="We love our customers, so feel free to call or e-mail us at anytime. If contacting after hours just leave a message and we will respond promptly." hint-size="100%,300px"></dc-import>
+
+<section style="border-bottom:1px solid var(--line,rgba(255,255,255,.09))">
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,90px) clamp(20px,5vw,52px);display:grid;grid-template-columns:1.05fr 0.95fr;gap:clamp(32px,5vw,60px);align-items:start">
+    <div data-reveal>
+      <div style="font:700 12px/1 'Space Mono',monospace;letter-spacing:0.24em;color:var(--amber-ink,#FFB020);margin-bottom:16px">// DROP US A LINE</div>
+      <h2 style="margin:0 0 26px;font:400 clamp(28px,3.6vw,44px)/0.95 'Anton',sans-serif;text-transform:uppercase;color:var(--ink,#f4f4f2)">Request an appointment</h2>
+
+      <div style="background:var(--panel,#15151a);border:1px solid var(--line2,rgba(255,255,255,.15));border-radius:6px;overflow:hidden">
+        <div style="height:5px;background:repeating-linear-gradient(-45deg,#FFB020 0 16px,var(--panel,#15151a) 16px 32px)"></div>
+        <div style="display:flex;border-bottom:1px solid var(--line,rgba(255,255,255,.09))">
+          <sc-for list="{{ stepTabs }}" as="t" hint-placeholder-count="3">
+            <div style="{{ t.style }}">{{ t.label }}</div>
+          </sc-for>
+        </div>
+        <div style="padding:clamp(24px,3.4vw,38px)">
+
+          <sc-if value="{{ stepIs1 }}" hint-placeholder-val="{{ true }}">
+            <div style="animation:stepIn .35s ease both">
+              <p style="margin:0 0 22px;font-size:15px;line-height:1.6;color:var(--muted,#b6b6b8)">Tell us what you drive. We service most makes + models.</p>
+              <div style="display:grid;grid-template-columns:110px 1fr;gap:14px;margin-bottom:14px">
+                <label style="display:flex;flex-direction:column;gap:8px">
+                  <span style="font:700 11px/1 'Space Mono',monospace;letter-spacing:0.16em;color:var(--muted3,#8a8a8d)">YEAR</span>
+                  <input type="text" inputMode="numeric" maxLength="4" value="{{ vYear }}" onInput="{{ onYear }}" placeholder="2018" style="background:var(--bg,#0b0b0d);border:1px solid var(--line2,rgba(255,255,255,.15));border-radius:4px;padding:13px 14px;color:var(--ink,#f4f4f2);font:500 15px/1.2 'Barlow',sans-serif;width:100%">
+                </label>
+                <label style="display:flex;flex-direction:column;gap:8px">
+                  <span style="font:700 11px/1 'Space Mono',monospace;letter-spacing:0.16em;color:var(--muted3,#8a8a8d)">MAKE <span style="color:var(--amber-ink,#FFB020)">*</span></span>
+                  <select value="{{ vMake }}" onChange="{{ onMake }}" style="background:var(--bg,#0b0b0d);border:1px solid var(--line2,rgba(255,255,255,.15));border-radius:4px;padding:13px 14px;color:var(--ink,#f4f4f2);font:500 15px/1.2 'Barlow',sans-serif;width:100%;-webkit-appearance:none;appearance:none">
+                    <sc-for list="{{ makeOpts }}" as="m" hint-placeholder-count="10">
+                      <option value="{{ m }}">{{ m }}</option>
+                    </sc-for>
+                  </select>
+                </label>
+              </div>
+              <label style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
+                <span style="font:700 11px/1 'Space Mono',monospace;letter-spacing:0.16em;color:var(--muted3,#8a8a8d)">MODEL</span>
+                <input type="text" value="{{ vModel }}" onInput="{{ onModel }}" placeholder="e.g. F-150, Camry, Silverado" style="background:var(--bg,#0b0b0d);border:1px solid var(--line2,rgba(255,255,255,.15));border-radius:4px;padding:13px 14px;color:var(--ink,#f4f4f2);font:500 15px/1.2 'Barlow',sans-serif">
+              </label>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ stepIs2 }}" hint-placeholder-val="{{ false }}">
+            <div style="animation:stepIn .35s ease both">
+              <p style="margin:0 0 18px;font-size:15px;line-height:1.6;color:var(--muted,#b6b6b8)">What can we help with? Pick everything that applies.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px">
+                <sc-for list="{{ svcOpts }}" as="s" hint-placeholder-count="7">
+                  <button onClick="{{ s.onClick }}" style="{{ s.style }}" style-hover="border-color:rgba(255,176,32,0.7)">{{ s.label }}</button>
+                </sc-for>
+              </div>
+              <label style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
+                <span style="font:700 11px/1 'Space Mono',monospace;letter-spacing:0.16em;color:var(--muted3,#8a8a8d)">ANYTHING ELSE WE SHOULD KNOW?</span>
+                <textarea value="{{ notes }}" onInput="{{ onNotes }}" placeholder="Noises, warning lights, when it happens…" rows="3" style="background:var(--bg,#0b0b0d);border:1px solid var(--line2,rgba(255,255,255,.15));border-radius:4px;padding:13px 14px;color:var(--ink,#f4f4f2);font:500 15px/1.5 'Barlow',sans-serif;resize:vertical"></textarea>
+              </label>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ stepIs3 }}" hint-placeholder-val="{{ false }}">
+            <div style="animation:stepIn .35s ease both">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px">
+                <label style="display:flex;flex-direction:column;gap:8px">
+                  <span style="font:700 11px/1 'Space Mono',monospace;letter-spacing:0.16em;color:var(--muted3,#8a8a8d)">YOUR NAME <span style="color:var(--amber-ink,#FFB020)">*</span></span>
+                  <input type="text" value="{{ name }}" onInput="{{ onName }}" placeholder="Your name" style="background:var(--bg,#0b0b0d);border:1px solid var(--line2,rgba(255,255,255,.15));border-radius:4px;padding:13px 14px;color:var(--ink,#f4f4f2);font:500 15px/1.2 'Barlow',sans-serif">
+                </label>
+                <label style="display:flex;flex-direction:column;gap:8px">
+                  <span style="font:700 11px/1 'Space Mono',monospace;letter-spacing:0.16em;color:var(--muted3,#8a8a8d)">PHONE OR EMAIL <span style="color:var(--amber-ink,#FFB020)">*</span></span>
+                  <input type="text" value="{{ contact }}" onInput="{{ onContact }}" placeholder="So we can reach you" style="background:var(--bg,#0b0b0d);border:1px solid var(--line2,rgba(255,255,255,.15));border-radius:4px;padding:13px 14px;color:var(--ink,#f4f4f2);font:500 15px/1.2 'Barlow',sans-serif">
+                </label>
+              </div>
+              <div style="border:1px solid var(--line,rgba(255,255,255,.09));border-radius:5px;padding:18px 20px;margin-bottom:24px;background:var(--bg,#0b0b0d)">
+                <div style="font:700 10.5px/1 'Space Mono',monospace;letter-spacing:0.2em;color:var(--muted3,#8a8a8d);margin-bottom:10px">YOUR REQUEST</div>
+                <p style="margin:0;font:400 13.5px/1.7 'Space Mono',monospace;color:var(--ink-soft,#cfcfce);white-space:pre-wrap">{{ summary }}</p>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px">
+                <a href="{{ smsHref }}" style="{{ sendStyle }}" style-hover="background:#ffc247">Text it to 512.751.7003</a>
+                <a href="{{ mailHref }}" style="{{ sendAltStyle }}" style-hover="border-color:var(--amber-ink,#FFB020);color:var(--amber-ink,#FFB020)">Send as email</a>
+              </div>
+              <p style="margin:0 0 20px;font-size:12.5px;color:var(--muted3,#8a8a8d)">Opens your messages or mail app with everything pre-filled — nothing sends until you hit send.</p>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0 0 16px;font-size:13.5px;color:#ff7a5c">{{ error }}</p>
+          </sc-if>
+
+          <div style="display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line,rgba(255,255,255,.09));padding-top:20px">
+            <sc-if value="{{ canBack }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ onBack }}" style="background:transparent;border:1px solid var(--line2,rgba(255,255,255,.15));border-radius:3px;color:var(--muted,#b6b6b8);font:700 13px/1 'Barlow Condensed',sans-serif;letter-spacing:0.1em;text-transform:uppercase;padding:12px 20px;cursor:pointer" style-hover="border-color:var(--amber-ink,#FFB020);color:var(--amber-ink,#FFB020)">← Back</button>
+            </sc-if>
+            <sc-if value="{{ canNext }}" hint-placeholder-val="{{ true }}">
+              <button onClick="{{ onNext }}" style="margin-left:auto;background:#FFB020;border:0;border-radius:3px;color:var(--on-amber,#0b0b0d);font:700 13px/1 'Barlow Condensed',sans-serif;letter-spacing:0.1em;text-transform:uppercase;padding:13px 26px;cursor:pointer" style-hover="background:#ffc247">Next →</button>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-reveal data-reveal-delay="0.12">
+      <div style="background:var(--bg-alt,#111116);border:1px solid var(--line,rgba(255,255,255,.09));border-radius:6px;padding:32px">
+        <div style="font:700 12px/1 'Space Mono',monospace;letter-spacing:0.2em;color:var(--amber-ink,#FFB020);margin-bottom:18px">// GIVE US A CALL OR E-MAIL</div>
+        <p style="margin:0 0 24px;font-size:15px;line-height:1.6;color:var(--muted,#b6b6b8)">We love our customers, so feel free to call or e-mail us at anytime. If contacting after hours just leave a message and we will respond promptly.</p>
+        <div style="height:1px;background:var(--line,rgba(255,255,255,.09));margin:0 0 22px"></div>
+        <div style="font:600 15px/1 'Barlow',sans-serif;color:var(--ink,#f4f4f2);margin-bottom:6px">Camdyn Auto Repair</div>
+        <p style="margin:0 0 18px;font-size:14.5px;line-height:1.6;color:var(--muted2,#98989b)">3584 Rockin' J Rd. Bldg. 4<br>Round Rock, TX 78665</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px">
+          <a href="tel:5123888993" style="text-decoration:none;display:block;padding:14px;border:1px solid var(--line2,rgba(255,255,255,.15));border-radius:4px" style-hover="border-color:#FFB020">
+            <span style="display:block;font:700 10px/1 'Space Mono',monospace;letter-spacing:0.14em;color:var(--muted3,#8a8a8d);margin-bottom:6px">CALL</span>
+            <span style="font:400 19px/1 'Anton',sans-serif;color:var(--ink,#f4f4f2)">512.388.8993</span>
+          </a>
+          <a href="sms:5127517003" style="text-decoration:none;display:block;padding:14px;border:1px solid var(--line2,rgba(255,255,255,.15));border-radius:4px" style-hover="border-color:#FFB020">
+            <span style="display:block;font:700 10px/1 'Space Mono',monospace;letter-spacing:0.14em;color:var(--muted3,#8a8a8d);margin-bottom:6px">TEXT</span>
+            <span style="font:400 19px/1 'Anton',sans-serif;color:var(--ink,#f4f4f2)">512.751.7003</span>
+          </a>
+        </div>
+        <a href="mailto:camdynautorepair@outlook.com" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;font:700 12px/1 'Barlow Condensed',sans-serif;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber-ink,#FFB020)">Email camdynautorepair@outlook.com →</a>
+      </div>
+      <div style="margin-top:16px;border-radius:6px;overflow:hidden;border:1px solid var(--line,rgba(255,255,255,.09))">
+        <iframe src="https://maps.google.com/maps?q=3584%20Rockin%27%20J%20Rd%20Round%20Rock%20TX%2078665&z=14&output=embed" title="Camdyn Auto Repair location" style="width:100%;height:260px;border:0;filter:grayscale(0.3) contrast(1.05)" loading="lazy"></iframe>
+      </div>
+      <a href="https://maps.google.com/?q=3584+Rockin+J+Rd+Round+Rock+TX+78665" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;margin-top:14px;font:700 12px/1 'Barlow Condensed',sans-serif;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink,#f4f4f2);text-decoration:none;border-bottom:1px solid rgba(255,176,32,0.5);padding-bottom:3px" style-hover="color:var(--amber-ink,#FFB020)">Get directions →</a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { step: 1, vYear: '', vMake: '', vModel: '', svcs: [], notes: '', name: '', contact: '', error: '' };
+  componentDidMount() {
+    const go = () => window.FX ? window.FX.init() : setTimeout(go, 80);
+    go();
+  }
+  buildBody() {
+    const s = this.state;
+    const vehicle = [s.vYear, s.vMake, s.vModel].filter(Boolean).join(' ') || 'my vehicle';
+    const want = s.svcs.length ? s.svcs.join(', ') : 'a look at it';
+    let body = 'Hi Camdyn Auto Repair — this is ' + (s.name || '___') + '. ';
+    body += 'Vehicle: ' + vehicle + '. ';
+    body += 'Looking for: ' + want + '. ';
+    if (s.notes.trim()) body += 'Notes: ' + s.notes.trim() + '. ';
+    body += 'You can reach me at ' + (s.contact || '___') + '.';
+    return body;
+  }
+  renderVals() {
+    const s = this.state;
+    const setS = (patch) => this.setState(Object.assign({ error: '' }, patch));
+    const tabDefs = [['01 VEHICLE', 1], ['02 SERVICE', 2], ['03 SEND', 3]];
+    const stepTabs = tabDefs.map(([label, n]) => ({
+      label,
+      style: {
+        flex: '1',
+        textAlign: 'center',
+        padding: '13px 8px',
+        font: "700 11px/1 'Space Mono', monospace",
+        letterSpacing: '0.14em',
+        color: s.step === n ? 'var(--on-amber,#0b0b0d)' : (s.step > n ? 'var(--amber-ink,#FFB020)' : 'var(--muted3,#8a8a8d)'),
+        background: s.step === n ? '#FFB020' : 'transparent',
+        borderRight: '1px solid var(--line,rgba(255,255,255,.09))',
+      },
+    }));
+    const svcNames = ['Routine service / oil change', 'Brakes', 'Battery', 'AC repair', 'Steering', 'Coolant / running hot', "Diagnosis — not sure yet"];
+    const svcOpts = svcNames.map((label) => {
+      const on = s.svcs.indexOf(label) !== -1;
+      return {
+        label,
+        onClick: () => this.setState(prev => ({ error: '', svcs: prev.svcs.indexOf(label) !== -1 ? prev.svcs.filter(x => x !== label) : prev.svcs.concat(label) })),
+        style: {
+          cursor: 'pointer',
+          font: "600 13.5px/1.2 'Barlow Condensed', sans-serif",
+          letterSpacing: '0.06em',
+          textTransform: 'uppercase',
+          color: on ? 'var(--amber-ink,#FFB020)' : 'var(--ink-soft,#cfcfce)',
+          background: on ? 'rgba(255,176,32,0.10)' : 'transparent',
+          border: on ? '1px solid rgba(255,176,32,0.75)' : '1px solid var(--line2,rgba(255,255,255,.15))',
+          borderRadius: '999px',
+          padding: '11px 16px',
+          transition: 'all .15s',
+        },
+      };
+    });
+    const makeOpts = ['— Select make —','Toyota','Honda','Chevrolet','Ford','BMW','Nissan','Mercedes Benz','Acura','Dodge','Lexus','Volkswagen','Jeep','Cadillac','Mazda','GMC','Chrysler','Infiniti','Pontiac','Subaru','Audi','Volvo','Hyundai','Lincoln','Land Rover','Hummer','Kia','Buick','Saturn','Scion','Mercury','Isuzu','Mitsubishi','Other'];
+    const body = this.buildBody();
+    return {
+      stepIs1: s.step === 1, stepIs2: s.step === 2, stepIs3: s.step === 3,
+      canBack: s.step > 1, canNext: s.step < 3,
+      stepTabs, svcOpts, makeOpts,
+      vYear: s.vYear, vMake: s.vMake || '— Select make —', vModel: s.vModel,
+      notes: s.notes, name: s.name, contact: s.contact, error: s.error,
+      summary: body,
+      smsHref: 'sms:5127517003?body=' + encodeURIComponent(body),
+      mailHref: 'mailto:camdynautorepair@outlook.com?subject=' + encodeURIComponent('Appointment request' + (s.name ? ' — ' + s.name : '')) + '&body=' + encodeURIComponent(body),
+      sendStyle: { textDecoration: 'none', background: '#FFB020', color: 'var(--on-amber,#0b0b0d)', font: "700 14px/1 'Barlow Condensed',sans-serif", letterSpacing: '0.08em', textTransform: 'uppercase', padding: '15px 24px', borderRadius: '3px' },
+      sendAltStyle: { textDecoration: 'none', color: 'var(--ink,#f4f4f2)', font: "700 14px/1 'Barlow Condensed',sans-serif", letterSpacing: '0.08em', textTransform: 'uppercase', padding: '15px 24px', borderRadius: '3px', border: '1px solid var(--line3,rgba(255,255,255,.22))' },
+      onYear: (e) => setS({ vYear: e.target.value.replace(/[^0-9]/g, '') }),
+      onMake: (e) => setS({ vMake: e.target.value === '— Select make —' ? '' : e.target.value }),
+      onModel: (e) => setS({ vModel: e.target.value }),
+      onNotes: (e) => setS({ notes: e.target.value }),
+      onName: (e) => setS({ name: e.target.value }),
+      onContact: (e) => setS({ contact: e.target.value }),
+      onBack: () => setS({ step: s.step - 1 }),
+      onNext: () => {
+        if (s.step === 1 && !s.vMake) { this.setState({ error: 'Pick your vehicle\u2019s make so we know what we\u2019re working with.' }); return; }
+        if (s.step === 2 && s.svcs.length === 0) { this.setState({ error: 'Pick at least one — "Diagnosis" works if you\u2019re not sure.' }); return; }
+        setS({ step: s.step + 1 });
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

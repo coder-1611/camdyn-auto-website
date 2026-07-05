@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script>try{var t=localStorage.getItem('car-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}setTimeout(function(){document.documentElement.classList.add('theme-anim');},350);</script>
+  <script src="./fx.js"></script>
+  <style>
+    :root,[data-theme="dark"]{--bg:#0b0b0d;--bg-alt:#111116;--panel:#15151a;--ink:#f4f4f2;--ink-soft:#cfcfce;--muted:#b6b6b8;--muted2:#98989b;--muted3:#8a8a8d;--faint:#77777a;--ghost:#26262c;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.15);--line3:rgba(255,255,255,.22);--dot:rgba(255,255,255,.05);--nav-bg:rgba(11,11,13,.86);--amber-ink:#FFB020;--on-amber:#0b0b0d}
+    [data-theme="light"]{--bg:#efeae1;--bg-alt:#ffffff;--panel:#ffffff;--ink:#1b1a16;--ink-soft:#3a362f;--muted:#55514a;--muted2:#6d6960;--muted3:#8a857b;--faint:#a8a297;--ghost:#e6e0d3;--line:rgba(0,0,0,.10);--line2:rgba(0,0,0,.15);--line3:rgba(0,0,0,.24);--dot:rgba(0,0,0,.06);--nav-bg:rgba(239,234,225,.86);--amber-ink:#b26a00;--on-amber:#0b0b0d}
+    html.theme-anim body,html.theme-anim nav,html.theme-anim footer,html.theme-anim section,html.theme-anim div,html.theme-anim span,html.theme-anim p,html.theme-anim h1,html.theme-anim h2,html.theme-anim h3,html.theme-anim label,html.theme-anim input,html.theme-anim textarea,html.theme-anim button,html.theme-anim a{transition:background-color .3s ease,border-color .3s ease,color .25s ease}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg,#0b0b0d)}
+    #dc-root{background:var(--bg,#0b0b0d)}
+    body{background:var(--bg,#0b0b0d);color:var(--ink,#f4f4f2);font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+  </style>
+</helmet>
+<dc-import name="SiteNav" active="services" hint-size="100%,74px"></dc-import>
+<dc-import name="PageHeader" kicker="// SERVICES" title="Auto Repair | Services" subtitle="Complete auto repair and maintenance for your car, truck or SUV — routine service, brakes, batteries, and AC." hint-size="100%,280px"></dc-import>
+
+<div style="position:sticky;top:74px;z-index:40;background:var(--nav-bg,rgba(11,11,13,.86));backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line,rgba(255,255,255,.09))">
+  <div style="max-width:1180px;margin:0 auto;padding:10px clamp(20px,5vw,52px);display:flex;gap:6px;flex-wrap:wrap">
+    <sc-for list="{{ jump }}" as="j" hint-placeholder-count="4">
+      <a href="{{ j.href }}" style="{{ j.style }}" style-hover="background:rgba(255,176,32,0.15)">{{ j.label }}</a>
+    </sc-for>
+  </div>
+</div>
+
+<sc-for list="{{ sections }}" as="sec" hint-placeholder-count="3">
+  <section id="{{ sec.id }}" data-section-watch style="border-bottom:1px solid var(--line,rgba(255,255,255,.09));scroll-margin-top:132px">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(52px,7vw,90px) clamp(20px,5vw,52px)">
+      <div data-reveal style="display:flex;align-items:baseline;gap:20px;margin-bottom:40px;flex-wrap:wrap">
+        <span style="font:400 clamp(40px,6vw,72px)/0.8 'Anton',sans-serif;color:var(--ghost,#26262c)">{{ sec.num }}</span>
+        <div>
+          <h2 style="margin:0;font:400 clamp(28px,4vw,46px)/0.95 'Anton',sans-serif;text-transform:uppercase;color:var(--ink,#f4f4f2)">{{ sec.title }}</h2>
+          <p style="margin:8px 0 0;font:700 13px/1 'Space Mono',monospace;letter-spacing:0.14em;color:var(--amber-ink,#FFB020)">{{ sec.sub }}</p>
+        </div>
+      </div>
+      <div data-reveal data-reveal-delay="0.08" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+        <sc-for list="{{ sec.items }}" as="item" hint-placeholder-count="3">
+          <div style="background:var(--panel,#15151a);border:1px solid var(--line,rgba(255,255,255,.09));border-radius:5px;padding:26px 26px 28px;transition:border-color .18s" style-hover="border-color:rgba(255,176,32,0.5)">
+            <div style="display:flex;align-items:center;gap:11px;margin-bottom:14px">
+              <span style="width:9px;height:9px;background:#FFB020;transform:rotate(45deg);flex:none"></span>
+              <h3 style="margin:0;font:600 20px/1.15 'Barlow Condensed',sans-serif;letter-spacing:0.02em;text-transform:uppercase;color:var(--ink,#f4f4f2)">{{ item.t }}</h3>
+            </div>
+            <sc-if value="{{ item.d }}" hint-placeholder-val="{{ true }}">
+              <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--muted2,#98989b)">{{ item.d }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+</sc-for>
+
+<section id="sec-makes" data-section-watch style="border-bottom:1px solid var(--line,rgba(255,255,255,.09));background:var(--bg-alt,#111116);scroll-margin-top:132px">
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(52px,7vw,90px) clamp(20px,5vw,52px)">
+    <div style="display:flex;align-items:baseline;gap:20px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font:400 clamp(40px,6vw,72px)/0.8 'Anton',sans-serif;color:var(--ghost,#26262c)">{{ makesNum }}</span>
+      <div>
+        <h2 style="margin:0;font:400 clamp(28px,4vw,46px)/0.95 'Anton',sans-serif;text-transform:uppercase;color:var(--ink,#f4f4f2)">Most makes + models</h2>
+        <p style="margin:8px 0 0;font:700 13px/1 'Space Mono',monospace;letter-spacing:0.14em;color:var(--amber-ink,#FFB020)">We offer complete auto repair</p>
+      </div>
+    </div>
+    <p style="margin:0 0 30px;max-width:720px;font-size:15.5px;line-height:1.65;color:var(--muted,#b6b6b8)">At Camdyn Auto Repair in Round Rock, Texas, we provide automotive services for most all types of vehicles, including:</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px">
+      <sc-for list="{{ makes }}" as="m" hint-placeholder-count="24">
+        <span style="font:600 13px/1 'Barlow Condensed',sans-serif;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft,#cfcfce);border:1px solid var(--line2,rgba(255,255,255,.15));padding:9px 14px;border-radius:3px">{{ m }}</span>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;overflow:hidden;background:var(--bg,#0b0b0d)">
+  <div style="position:absolute;right:0;top:0;bottom:0;width:8px;background:repeating-linear-gradient(-45deg,#FFB020 0 20px,var(--bg,#0b0b0d) 20px 40px)"></div>
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(52px,7vw,88px) clamp(20px,5vw,52px);text-align:center">
+    <h2 style="margin:0 0 14px;font:400 clamp(28px,4vw,48px)/0.98 'Anton',sans-serif;text-transform:uppercase;color:var(--ink,#f4f4f2)">Not sure what you need?</h2>
+    <p style="margin:0 0 30px;font-size:17px;color:var(--muted,#b6b6b8)">Give us a call and we'll help you figure it out.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+      <a href="tel:5123888993" style="text-decoration:none;background:#FFB020;color:var(--on-amber,#0b0b0d);font:700 15px/1 'Barlow Condensed',sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:16px 30px;border-radius:3px" style-hover="background:#ffc247">Call 512.388.8993</a>
+      <a href="sms:5127517003" style="text-decoration:none;color:var(--ink,#f4f4f2);font:700 15px/1 'Barlow Condensed',sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:16px 30px;border-radius:3px;border:1px solid var(--line3,rgba(255,255,255,.22))" style-hover="border-color:var(--amber-ink,#FFB020);color:var(--amber-ink,#FFB020)">Text 512.751.7003</a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { activeSec: 'sec-routine' };
+  componentDidMount() {
+    const go = () => {
+      if (!window.FX) { setTimeout(go, 80); return; }
+      window.FX.init();
+      window.FX.watchSections((id) => this.setState({ activeSec: id }));
+    };
+    go();
+  }
+  renderVals() {
+    const active = this.state.activeSec;
+    const jump = [
+      ['01 / ROUTINE', 'sec-routine'],
+      ['02 / REPAIR', 'sec-repair'],
+      ['03 / AC', 'sec-ac'],
+      ['04 / MAKES + MODELS', 'sec-makes'],
+    ].map(([label, id]) => ({ label, href: '#' + id, style: {
+      textDecoration: 'none',
+      font: "700 12px/1 'Space Mono', monospace",
+      letterSpacing: '0.1em',
+      padding: '9px 13px',
+      borderRadius: '3px',
+      color: active === id ? 'var(--on-amber,#0b0b0d)' : 'var(--muted2,#98989b)',
+      background: active === id ? '#FFB020' : 'transparent',
+      transition: 'all .18s',
+    }}));
+    return {
+      jump,
+      makesNum: '04',
+      sections: [
+        { id: 'sec-routine', num: '01', title: 'Routine Service', sub: 'Preventative maintenance', items: [
+          { t: 'Oil Change', d: 'We offer both conventional and synthetic motor oil, and quality oil filters to keep it clean.' },
+          { t: 'Tire Rotation', d: '"Wear" it really counts is maximizing the life of your vehicles tires and avoiding uneven wear patterns that create road noise and premature tire replacement.' },
+          { t: 'Injector & Throttle Body Cleaning', d: 'Removes excess carbon buildup to give your car better throttle response and fuel mileage.' },
+          { t: 'Engine Coolant Service', d: 'Removes unwanted buildup from engines cooling system allowing your vehicle to keep its cool in the Texas heat.' },
+          { t: 'Brake Fluid Service', d: 'Brake fluid absorbs moisture, even in a sealed system, contamination is a certainty with water and air leaving you with a soft or spongy brake pedal. Flushing the brake hydraulic system removes the old contaminated fluid and restores your brake system to near new performance.' },
+          { t: 'Power Steering Fluid Service', d: 'As components in the power steering system wear, metal particles will contaminate the fluid, which will cause seals in the system to leak and components to eventually fail. Changing the fluid at regular intervals is important for the life of the hoses, pistons, valves, seals, and the power steering pump itself.' },
+        ]},
+        { id: 'sec-repair', num: '02', title: 'Auto Repair + Maintenance', sub: 'We provide all major + minor auto repair', items: [
+          { t: 'Brakes', d: 'We service all brake components, including brake pads, rotors, calipers, brake lines, hardware, and brake fluid service.' },
+          { t: 'Battery Replacement', d: 'We test batteries; replace batteries, battery terminals and battery cables.' },
+        ]},
+        { id: 'sec-ac', num: '03', title: 'AC Repair', sub: 'We provide full service AC repairs', items: [
+          { t: 'AC Evacuation + Recharge', d: '' },
+          { t: 'AC Diagnosis', d: '' },
+          { t: 'All Major AC Repairs', d: "We provide repairs on all AC issues + symptoms. If your AC is not functioning properly, don't sweat it. We can help you beat this Texas heat!" },
+        ]},
+      ],
+      makes: ['Toyota','Honda','Chevrolet','Ford','BMW','Nissan','Mercedes Benz','Acura','Dodge','Lexus','Volkswagen','Jeep','Corvette','Mitsubishi','Cadillac','Mazda','GMC','Chrysler','Infiniti','Pontiac','Subaru','Audi','Volvo','Hyundai','Lincoln','Land Rover','Hummer','Kia','Buick','Saturn','Scion','Mercury','Isuzu'],
+    };
+  }
+}
+</script>
+</body>
+</html>
